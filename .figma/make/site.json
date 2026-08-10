@@ -1,0 +1,10 @@
+{
+  "description": "Enterprise-grade platform offering comprehensive API analytics, performance monitoring, and AI-driven insights to optimize API health and reliability.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

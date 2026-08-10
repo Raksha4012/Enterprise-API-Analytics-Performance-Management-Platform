@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apipulse-backend-service
+  namespace: apipulse
+  labels:
+    app: apipulse-backend
+spec:
+  selector:
+    app: apipulse-backend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000
+  type: ClusterIP

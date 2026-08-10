@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: apipulse
+  labels:
+    app.kubernetes.io/name: apipulse
+    app.kubernetes.io/managed-by: kubectl

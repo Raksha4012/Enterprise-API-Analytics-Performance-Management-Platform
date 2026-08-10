@@ -1,0 +1,11 @@
+id,name,endpoint,method,version,owner,status,category,description,requests,errorRate,avgResponse,uptime
+1,User Authentication API,/api/v1/auth,POST,v1.2.0,Platform Team,healthy,Security,Handles JWT token generation login and session management,14200000,0.12,45,99.98
+2,Payment Gateway API,/api/v1/payments/charge,POST,v2.0.1,Payments Team,warning,Finance,Processes credit card transactions and webhooks,8900000,2.45,182,99.45
+3,Product Catalog API,/api/v1/products,GET,v1.5.0,Commerce Team,healthy,Commerce,Provides product listing inventory and pricing,18600000,0.05,28,99.99
+4,Order Processing API,/api/v1/orders,POST,v2.1.0,Commerce Team,slow,Commerce,Manages checkout order creation and status tracking,4500000,1.85,420,98.90
+5,Search & Recommendation API,/api/v1/search,GET,v1.1.0,Search Team,healthy,Search,Elasticsearch vector search for items and suggestions,9200000,0.40,65,99.92
+6,Analytics Data Ingestion,/api/v1/telemetry,POST,v3.0.0,Data Team,healthy,Analytics,High-throughput event streaming collector,24100000,0.02,18,99.99
+7,User Profile Service,/api/v1/users/profile,GET,v1.0.0,Platform Team,healthy,Users,User preferences settings and profile details,6800000,0.15,38,99.95
+8,Notification Dispatcher,/api/v1/notify/send,POST,v1.3.0,Operations Team,down,Messaging,Multi-channel email SMS and push notification service,1200000,8.40,1250,94.20
+9,Fraud Detection Service,/api/v1/fraud/check,POST,v2.2.0,Security Team,healthy,Security,Real-time ML risk analysis for payment transactions,5300000,0.08,84,99.97
+10,Inventory Sync API,/api/v1/inventory/sync,PUT,v1.0.1,Commerce Team,warning,Commerce,Warehouse inventory synchronization service,3100000,3.10,240,99.10
