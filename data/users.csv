@@ -1,0 +1,13 @@
+id,name,email,username,password,role,department,status,lastLogin,apis,createdAt
+10,"System Admin",admin@acme.com,admin,admin,Admin,Executive,active,"2026-08-10 16:28",40,2025-01-01
+1,"Alexandra Chen",alex.chen@acme.com,alex.chen,Admin@2026,Admin,Platform,active,"2026-08-10 16:08",24,2025-01-15
+2,"Marcus Johnson",m.johnson@acme.com,marcus.j,Dev@2026!,Developer,Payments,active,"2026-08-10 16:19",12,2025-02-20
+3,"Sarah Williams",s.williams@acme.com,sarah.w,Dev@2026!,Developer,Commerce,active,"2026-08-03 17:33",8,2025-03-11
+4,"David Park",d.park@acme.com,david.park,View@2026!,Viewer,Analytics,active,"2026-08-10 16:08",0,2025-04-05
+5,"Emma Rodriguez",e.rodriguez@acme.com,emma.rod,Dev@2026!,Developer,Data,inactive,"2026-07-28 14:22",6,2025-05-18
+6,"James Wilson",j.wilson@acme.com,james.w,Admin@2026,Admin,Security,active,"2026-08-04 07:58",31,2025-01-08
+7,"Priya Patel",p.patel@acme.com,priya.p,Dev@2026!,Developer,Search,active,"2026-08-04 09:17",15,2025-06-22
+8,"Carlos Mendez",c.mendez@acme.com,carlos.m,View@2026!,Viewer,Operations,active,"2026-08-03 15:44",0,2025-07-01
+9,"Yuki Tanaka",y.tanaka@acme.com,yuki.t,Dev@2026!,Developer,Platform,pending,"—",0,2026-08-04
+1786376426080,"sak",sakshi@gmail.com,sak,123456,Developer,123456,active,"—",0,2026-08-10
+1786375322086,"sak g",sakshi@gmail.com,sak.g,123456,Developer,123456,active,"2026-08-10 16:19",0,2026-08-10
