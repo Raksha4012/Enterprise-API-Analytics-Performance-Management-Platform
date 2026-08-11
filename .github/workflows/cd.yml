@@ -119,7 +119,7 @@ jobs:
         run: |
           kubectl apply -f k8s/namespace.yaml --validate=false
           kubectl apply -f k8s/configmap.yaml --validate=false
-
+    
       - name: Deploy infrastructure (Postgres, Redis)
         run: |
           kubectl apply -f k8s/postgres/ --validate=false
