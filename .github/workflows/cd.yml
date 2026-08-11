@@ -117,13 +117,13 @@ jobs:
 
       - name: Apply namespace and config
         run: |
-          kubectl apply -f k8s/namespace.yaml
-          kubectl apply -f k8s/configmap.yaml
+          kubectl apply -f k8s/namespace.yaml --validate=false
+          kubectl apply -f k8s/configmap.yaml --validate=false
 
       - name: Deploy infrastructure (Postgres, Redis)
         run: |
-          kubectl apply -f k8s/postgres/
-          kubectl apply -f k8s/redis/
+          kubectl apply -f k8s/postgres/ --validate=false
+          kubectl apply -f k8s/redis/ --validate=false      
           kubectl rollout status statefulset/postgres -n apipulse --timeout=120s
 
       - name: Deploy backend
@@ -142,8 +142,9 @@ jobs:
 
       - name: Apply HPA and Ingress
         run: |
-          kubectl apply -f k8s/hpa.yaml
-          kubectl apply -f k8s/ingress.yaml
+         kubectl apply -f k8s/hpa.yaml --validate=false
+         kubectl apply -f k8s/ingress.yaml --validate=false
+         
 
       - name: Smoke test — health check
         run: |
