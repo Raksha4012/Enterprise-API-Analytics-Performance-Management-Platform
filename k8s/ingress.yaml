@@ -4,29 +4,9 @@ metadata:
   name: apipulse-ingress
   namespace: apipulse
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    kubernetes.io/ingress.class: nginx
 spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - apipulse.example.com
-        - api.apipulse.example.com
-      secretName: apipulse-tls
   rules:
-    - host: api.apipulse.example.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: apipulse-backend-service
-                port:
-                  number: 80
     - host: apipulse.example.com
       http:
         paths:

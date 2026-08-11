@@ -6,11 +6,11 @@ metadata:
   labels:
     app: postgres
 spec:
-  serviceName: postgres-service
-  replicas: 1
   selector:
     matchLabels:
       app: postgres
+  serviceName: postgres
+  replicas: 1
   template:
     metadata:
       labels:
@@ -18,48 +18,43 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:16-alpine
+          image: postgres:15
           ports:
             - containerPort: 5432
           env:
             - name: POSTGRES_DB
-              valueFrom:
-                configMapKeyRef:
-                  name: apipulse-config
-                  key: DB_NAME
+              value: "apipulse"
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: apipulse-secrets
-                  key: DB_USER
+                  name: postgres-secret
+                  key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: apipulse-secrets
-                  key: DB_PASSWORD
-            - name: PGDATA
-              value: /var/lib/postgresql/data/pgdata
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
           volumeMounts:
-            - name: postgres-storage
+            - name: pgdata
               mountPath: /var/lib/postgresql/data
-          resources:
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
-            limits:
-              memory: "1Gi"
-              cpu: "1000m"
-          livenessProbe:
-            exec:
-              command: ["pg_isready", "-U", "apipulse"]
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          readinessProbe:
-            exec:
-              command: ["pg_isready", "-U", "apipulse"]
-            initialDelaySeconds: 5
-            periodSeconds: 5
-      volumes:
-        - name: postgres-storage
-          persistentVolumeClaim:
-            claimName: postgres-pvc
+  volumeClaimTemplates:
+    - metadata:
+        name: pgdata
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: apipulse
+spec:
+  selector:
+    app: postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
+  clusterIP: None
