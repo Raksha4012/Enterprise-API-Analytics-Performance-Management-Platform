@@ -60,7 +60,7 @@ jobs:
           context: backend
           file: backend/Dockerfile
           platforms: linux/amd64,linux/arm64
-          push: true
+          push: true  
           tags: ${{ steps.meta-backend.outputs.tags }}
           labels: ${{ steps.meta-backend.outputs.labels }}
           cache-from: type=gha
